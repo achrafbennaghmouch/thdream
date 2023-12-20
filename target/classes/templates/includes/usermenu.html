@@ -1,0 +1,12 @@
+<div class="user-profile pull-right" th:fragment="usermenu">
+	 <img class="avatar user-thumb" src="/assets/images/author/avatar.png" 
+		alt="avatar">
+	<h4 class="user-name dropdown-toggle" data-toggle="dropdown" th:text ="${#authentication.getPrincipal().getUsername()}">
+		Admin <i class="fa fa-angle-down"></i>
+	</h4>
+	<div class="dropdown-menu">
+		<a class="dropdown-item" th:href="@{/settings}" th:text="${menu.profile}">Profile</a> <a
+			class="dropdown-item" th:href="@{/settings}" th:text="${menu.settings}">Settings</a> <a
+			class="dropdown-item" th:href="@{/logout}" th:text="${menu.logout}">Log Out</a>
+	</div>
+</div>

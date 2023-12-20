@@ -1,0 +1,12 @@
+
+
+<nav th:fragment="nav">
+	<ul id="navigation">
+		<li><a th:href="@{/}" th:text="${menu?.homeItemI18n}"></a></li>
+		<li><a th:href="@{/about}" th:text="${menu?.aboutItemI18n}"></a></li>
+		<li><a th:href="@{/room}" th:text="${menu?.roomItemI18n}"></a></li>
+		<li><a th:href="@{/blog}" th:text="${menu?.blogItemI18n}"> </a></li>
+		<li><a th:href="@{/login}" th:text="${menu?.signInI18n}"> </a></li>
+		<li><a th:href="@{/contact}" th:text="${menu?.contactItemI18n}"></a></li>
+	</ul>
+</nav>

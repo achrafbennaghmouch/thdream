@@ -1,0 +1,451 @@
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title th:text="${hotel.name}">Montana</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <link rel="manifest" href="site.webmanifest"> -->
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+<!-- Place favicon.ico in the root directory -->
+
+<!-- CSS here -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/themify-icons.css">
+<link rel="stylesheet" href="/css/nice-select.css">
+<link rel="stylesheet" href="/css/flaticon.css">
+<link rel="stylesheet" href="/css/gijgo.css">
+<link rel="stylesheet" href="/css/animate.css">
+<link rel="stylesheet" href="/css/slicknav.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/detail.css">
+<!-- <link rel="stylesheet" href="../css/responsive.../css"> -->
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+	<!-- header-start -->
+	<header>
+		<div class="header-area ">
+			<div id="sticky-header" class="main-header-area">
+				<div class="container-fluid p-0">
+					<div class="row align-items-center no-gutters">
+						<div class="col-xl-5 col-lg-6">
+							<div class="main-menu  d-none d-lg-block">
+								<nav>
+									<div th:insert="website/nav :: nav"></div>
+								</nav>
+							</div>
+						</div>
+						<div class="col-xl-2 col-lg-2">
+							<div class="logo-img">
+								<a href="index.html"> <img src="img/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						/**/
+								<!--  <div class="book_btn d-none d-lg-block">
+									<a class="popup-with-form" href="#test-form">Check In</a>
+								</div>-->
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="mobile_menu d-block d-lg-none"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header-end -->
+
+	<!-- bradcam_area_start -->
+	<div class="bradcam_area breadcam_bg_2">
+		<h3 th:text="${booking.bookTitleI18n}">Get in Touch</h3>
+	</div>
+	<!-- bradcam_area_end -->
+
+
+	<!-- ================ contact section start ================= -->
+	<section class="contact-section" id="validation">
+		<div class="container">
+
+			<div class="md-stepper-horizontal orange">
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>1</span>
+					</div>
+					<div class="md-step-title" th:text="${booking.bookingI18n}">Booking</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step active">
+					<div class="md-step-circle">
+						<span>2</span>
+					</div>
+					<div class="md-step-title" th:text="${booking.detailsI18n}">Details</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>3</span>
+					</div>
+					<div class="md-step-title" th:text="${booking.summaryI18n}">Summary</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+				<div class="md-step">
+					<div class="md-step-circle">
+						<span>4</span>
+					</div>
+					<div class="md-step-title" th:text="${booking.paymentI18n}">Payment</div>
+					<div class="md-step-bar-left"></div>
+					<div class="md-step-bar-right"></div>
+				</div>
+			</div>
+
+			
+
+			<br /> <br />
+
+
+			<div class="row">
+				<form class="form-contact contact_form"
+					th:action="@{/addcheckinregistration}" method="post">
+					<div class="col-lg-12">
+
+						<input type="hidden" name="RoomPlan" th:value="${roomtype}" />
+
+
+
+
+
+						<div class="col-6">
+							<h2 class="contact-title" th:text="${booking.bookingdetailsI18n}">Booking details</h2>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input class="form-control valid" name="CheckIn"
+										id="datepicker" type="text" th:placeholder="${checkin.CheckInI18n}"  >
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input class="form-control valid" name="CheckOut"
+										id="datepicker2" type="text"  th:placeholder="${checkin.CheckOutI18n}">
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input class="form-control valid" name="Adults" id="email"
+										type="text"  th:placeholder="${checkin.AdultsI18n}">
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group">
+									<input class="form-control valid" name="Kids" id="email"
+										type="text"  th:placeholder="${checkin.KidsI18n}">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-12">
+						<div class="col-6">
+							<h2 class="contact-title" th:text="${booking.contactdetailsI18n}">Contact details</h2>
+						</div>
+
+
+						<div class="row">
+
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.FullnameI18n}">Full Name <span
+									class="required_field">*</span></label> <input name="Fullname"
+									type="text" class="form-control" id="validationCustom01"
+									placeholder="Full Name" required="required" th:placeholder="${checkin.FullnameI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="validationCustom01" style="display: block;" th:text="${checkin.GuestTypeI18n}">Guest
+										Type <span class="required_field">*</span>
+									</label> <select name="GuestType" data-live-search="true"
+										style="width: 100%;" class="form-control w-auto"
+										required="required">
+										<option th:value="${u.id}" th:each="u:${guestTypes}"
+											th:text="${u.name}"></option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:placeholder="${checkin.EmailI18n}">Email <span
+									class="required_field">*</span></label> <input name="Email" type="text"
+									class="form-control" id="validationCustom04"
+									 required="required" th:placeholder="${checkin.EmailI18n}">
+
+							</div>
+
+
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.MobileI18n}">Mobile<span
+									class="required_field">*</span></label> <input name="Mobile"
+									type="number" class="form-control" id="validationCustom01"
+									 required="required" th:placeholder="${checkin.MobileI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.AddressI18n}">Address<span
+									class="required_field">*</span></label> <input name="Address"
+									type="text" class="form-control" id="validationCustom02"
+									 required="required" th:placeholder="${checkin.AddressI18n}">
+
+							</div>
+							<div class="col-sm-6">
+
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.CountryI18n}">Country<span
+									class="required_field">*</span></label> <select name="Country"
+									data-live-search="true" type="text"
+									class="form-control selectpicker" required="required">
+									<option th:value="${u.id}" th:each="u:${countries}"
+										th:text="${u.name}"></option>
+								</select>
+
+							</div>
+
+
+
+
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.cityI18n}">City
+									<span class="required_field">*</span>
+								</label><select name="city" data-live-search="true" type="text"
+									class="form-control selectpicker" required="required">
+									<option th:value="${u.id}" th:each="u:${cities}"
+										th:text="${u.name}"></option>
+								</select>
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.GenderI18n}">Gender<span
+									class="required_field">*</span></label> <select name="Gender"
+									data-live-search="true" type="text"
+									class="form-control selectpicker" required="required">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.AgeI18n}">Age</label> <input name="Age"
+									type="number" class="form-control" id="validationCustom02"
+									 th:placeholder="${checkin.AgeI18n}">
+
+							</div>
+
+
+
+
+
+
+
+
+
+							<div class="col-sm-6" >
+								<label for="validationCustom01"  th:text="${checkin.BookedByI18n}">BookedBy</label> <input
+									name="BookedBy" type="text" class="form-control"
+									id="validationCustom01"  th:placeholder="${checkin.BookedByI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom02" th:text="${checkin.VehicleNumberI18n}">Vehicle Number</label> <input
+									name="VehicleNumber" type="number" class="form-control"
+									id="validationCustom02"  th:placeholder="${checkin.VehicleNumberI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.RemarkI18n}">Note</label> <input
+									name="Remark" type="text" class="form-control"
+									id="validationCustom02"  th:placeholder="${checkin.RemarkI18n}">
+
+							</div>
+
+
+
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.IDNoI18n}">ID Number</label> <input
+									name="IDNo" type="number" class="form-control"
+									id="validationCustom01"  th:placeholder="${checkin.IDNoI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom02" th:text="${checkin.NameOtherPersonI18n}">Name Other Person</label> <input
+									name="NameOtherPerson" type="text" class="form-control"
+									id="validationCustom02"  th:placeholder="${checkin.NameOtherPersonI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom01" style="display: block;" th:text="${checkin.GenderOtherPersonI18n}">Gender</label>
+								<select name="GenderOtherPerson" data-live-search="true"
+									type="text" class="form-control selectpicker">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+
+							</div>
+
+
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.AgeOtherPersonI18n}">Age Other Person</label> <input
+									name="AgeOtherPerson" type="number" class="form-control"
+									id="validationCustom01"  th:placeholder="${checkin.AgeOtherPersonI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom02" th:text="${checkin.AddressOtherPersonI18n}">Address Other Person</label> <input
+									name="AddressOtherPerson" type="text" class="form-control"
+									id="validationCustom02"  th:placeholder="${checkin.AddressOtherPersonI18n}">
+
+							</div>
+							<div class="col-sm-6">
+								<label for="validationCustom02" th:text="${checkin.IDNoOtherPersonI18n}">IDNo Other Person</label> <input
+									name="IDNoOtherPerson" type="number" class="form-control"
+									id="validationCustom02"  th:placeholder="${checkin.IDNoOtherPersonI18n}">
+
+							</div>
+
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.AdvancePaymentI18n}">Advance Payment</label> <input
+									name="AdvancePayment" type="number" class="form-control"
+									id="validationCustom01" th:placeholder="${checkin.AdvancePaymentI18n}">
+
+							</div>
+							
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.UsernameI18n}">Username</label>
+									<input class="form-control" name="username" id="subject"
+										type="text"  th:placeholder="${checkin.UsernameI18n}">
+								
+							</div>
+
+							<div class="col-sm-6">
+								<label for="validationCustom01" th:text="${checkin.PasswordI18n}">Password</label>
+									<input class="form-control" name="password" id="subject"
+										type="text"  th:placeholder="${checkin.PasswordI18n}">
+								
+							</div>
+
+							<div class="col-sm-12">
+								<div class="form-group">
+									<input type="checkbox"> <span th:text="${checkin.messageI18n}"></span>
+								
+
+								<input type="hidden" th:value="${roomid}" name="room">
+								</div>
+							</div>
+
+
+
+
+							<div class="col-sm-12">
+								<input type="submit" class="button button-contactForm boxed-btn"
+									 th:value="${booking.bookingI18n}" />
+							</div>
+						</div>
+
+					</div>
+				</form>
+				
+				
+	
+				
+				
+				
+
+
+
+			</div>
+		</div>
+	</section>
+	<!-- ================ contact section end ================= -->
+
+	<!-- footer -->
+	<div th:insert="website/footer_website :: footer_website"></div>
+
+	<!-- link that opens popup -->
+
+	<!-- form itself end-->
+	<div th:insert="website/booking :: booking"></div>
+	<!-- form itself end -->
+
+	<!-- JS here -->
+	<script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="/js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
+	<script src="/js/isotope.pkgd.min.js"></script>
+	<script src="/js/ajax-form.js"></script>
+	<script src="/js/waypoints.min.js"></script>
+	<script src="/js/jquery.counterup.min.js"></script>
+	<script src="/js/imagesloaded.pkgd.min.js"></script>
+	<script src="/js/scrollIt.js"></script>
+	<script src="/js/jquery.scrollUp.min.js"></script>
+	<script src="/js/wow.min.js"></script>
+	<script src="/js/nice-select.min.js"></script>
+	<script src="/js/jquery.slicknav.min.js"></script>
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<script src="/js/plugins.js"></script>
+	<script src="/js/gijgo.min.js"></script>
+
+	<!--contact js-->
+	<script src="/js/contact.js"></script>
+	<script src="/js/jquery.ajaxchimp.min.js"></script>
+	<script src="/js/jquery.form.js"></script>
+	<script src="/js/jquery.validate.min.js"></script>
+	<script src="/js/mail-script.js"></script>
+
+	<script src="../js/main.js"></script>
+	<script>
+		location.hash = "#validation";
+		$('#datepicker').datepicker({
+			iconsLibrary : 'fontawesome',
+			icons : {
+				rightIcon : '<span class="fa fa-caret-down"></span>'
+			}
+		});
+		$('#datepicker2').datepicker({
+			iconsLibrary : 'fontawesome',
+			icons : {
+				rightIcon : '<span class="fa fa-caret-down"></span>'
+			}
+
+		});
+	</script>
+
+
+
+</body>
+
+</html>

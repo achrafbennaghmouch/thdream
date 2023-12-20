@@ -1,0 +1,295 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>New</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png"
+	href="../assets/images/icon/favicon.ico">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/metisMenu.css">
+<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../assets/css/slicknav.min.css">
+<!-- amcharts css -->
+<link rel="stylesheet"
+	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
+	type="text/css" media="all" />
+<!-- Start datatable css -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+<!-- style css -->
+<link rel="stylesheet" href="../assets/css/typography.css">
+<link rel="stylesheet" href="../assets/css/default-css.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+<!-- modernizr css -->
+<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+</head>
+
+<body>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<!-- preloader area start -->
+	<div id="preloader">
+		<div class="loader"></div>
+	</div>
+	<!-- preloader area end -->
+	<!-- page container area start -->
+	<div class="page-container">
+		<!-- sidebar menu area start -->
+		<div class="sidebar-menu">
+			<div class="sidebar-header">
+				<div class="logo">
+					<a th:href="index.html"><img src="../assets/images/icon/logo.png"
+						alt="logo"></a>
+				</div>
+			</div>
+			<div class="main-menu">
+				<div th:insert="includes/menu :: menu"></div>
+			</div>
+		</div>
+		<!-- sidebar menu area end -->
+		<!-- main content area start -->
+		<div class="main-content">
+			<!-- header area start -->
+			<div class="header-area">
+				<div class="row align-items-center">
+					<!-- nav and search button -->
+					<div class="col-md-6 col-sm-8 clearfix">
+						<div class="nav-btn pull-left">
+							<span></span> <span></span> <span></span>
+						</div>
+						<div class="search-box pull-left">
+							<form action="#">
+								<input type="text" name="search" placeholder="Search..."
+									required> <i class="ti-search"></i>
+							</form>
+						</div>
+					</div>
+					<!-- profile info & task notification -->
+					<span class="col-md-6 col-sm-4 clearfix"
+						th:insert="includes/notification_bar :: notification_bar"></span>
+				</div>
+			</div>
+			<!-- header area end -->
+			<!-- page title area start -->
+			<div class="page-title-area">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<div class="breadcrumbs-area clearfix">
+							<h4 class="page-title pull-left"
+								th:text="${itemI18n?.getAllTitleI18n}">Subscribers</h4>
+
+						</div>
+					</div>
+					<div class="col-sm-6 clearfix">
+						<div th:insert="includes/usermenu :: usermenu"></div>
+					</div>
+				</div>
+			</div>
+			<!-- page title area end -->
+			<div class="main-content-inner">
+				<div class="row">
+					<!-- data table start -->
+					<div class="col-12 mt-5">
+						<div class="card">
+							<div class="card-body">
+								<form class="needs-validation" novalidate=""
+									th:action="@{/updateemployee/{id}(id=${item.id})}" th:object="${item}"
+									 method="post">
+
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01"  th:text="${itemI18n?.FirstnameI18n}">Firstname</label> <input
+											th:value="${item.Firstname}"	name="Firstname" type="text" class="form-control"
+												id="validationCustom01" placeholder="First name" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02"  th:text="${itemI18n?.GenderI18n}">Gender</label> <select
+												name="Gender" class="form-control" required>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+											</select>
+
+
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Lastname</label> <input
+											th:value="${item.Lastname}"	name="Lastname" type="text" class="form-control"
+												id="validationCustom02" placeholder="Last Name" required="">
+										</div>
+									</div>
+
+
+									<div class="form-row">
+										<!--  <div class="col-md-4 mb-3">
+											<label for="validationCustom01">Lastname</label> <input
+												name="Lastname" type="text" class="form-control"
+												id="validationCustom01" placeholder="First name" required="">
+										</div>-->
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Username</label> <input
+											th:value="${item.Username}"	name="Username" type="text" class="form-control"
+												id="validationCustom02" placeholder="Last name" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Email</label> <input
+											th:value="${item.Email}"	name="Email" type="text" class="form-control"
+												id="validationCustom02" placeholder="Last name" required="">
+										</div>
+									</div>
+
+
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">Password</label> <input
+												name="Password" type="text" class="form-control"
+												id="validationCustom01" placeholder="First name" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">PasswordConfirm</label> <input
+												name="PasswordConfirm" type="text" class="form-control"
+												id="validationCustom02" placeholder="Last name" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Dateofbirth</label> <input
+											th:value="${item.Dateofbirth}"	name="Dateofbirth" type="text" class="form-control"
+												id="validationCustom02" placeholder="Last name" required="">
+										</div>
+									</div>
+
+
+
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">Phone</label> <input
+											th:value="${item.phone}"	name="Phone" type="number" class="form-control"
+												id="validationCustom01" placeholder="First name" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Designation</label> 
+												<select
+												name="designation" data-live-search="true" type="text"
+												class="form-control selectpicker" required="required">
+												<option th:value="${u.id}" th:each="u:${designations}"
+													th:text="${u.name}"></option>
+											</select>
+												
+												
+
+										</div>
+										
+									</div>
+
+
+
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">country</label> 
+												
+												<select
+												name="country" data-live-search="true" type="text"
+												class="form-control selectpicker" required="required">
+												<option th:value="${u.id}" th:each="u:${countries}"
+													th:text="${u.name}"></option>
+											</select>
+
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">city</label> 
+                                               
+                                               <select
+												name="city" data-live-search="true" type="text"
+											class="form-control selectpicker" required="required">
+												<option th:value="${u.id}" th:each="u:${cities}"
+													th:text="${u.name}"></option>
+											</select>
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Address</label> <input
+											th:value="${item.Address}"	name="Address" type="text" class="form-control"
+												id="validationCustom02" placeholder="Address" required="">
+										</div>
+									</div>
+
+
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">ID Number</label> <input
+											th:value="${item.IDNumber}"	name="IDNumber" type="text" class="form-control"
+												id="validationCustom01" placeholder="ID Number" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Remark</label> <input
+											th:value="${item.Remark}"	name="Remark" type="text" class="form-control"
+												id="validationCustom02" placeholder="Remark">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Date Of Joining</label> <input
+											th:value="${item.DateOfJoining}"	name="DateOfJoining" type="date" class="form-control"
+												id="validationCustom02" placeholder="Date Of Joining"
+												required="">
+										</div>
+									</div>
+
+
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">Salary</label> <input
+											th:value="${item.Salary}"	name="Salary" type="number" class="form-control"
+												id="validationCustom01" placeholder="Salary" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Shift</label> <select
+											th:value="${item.Shift}"	name="Shift" data-live-search="true" type="text"
+												class="form-control selectpicker" required="required">
+												<option th:value="${u.id}" th:each="u:${shifts}"
+													th:text="${u.type}"></option>
+											</select>
+
+
+										</div>
+
+									</div>
+
+									<button class="btn btn-primary" type="submit">
+										<i class="fa fa-plus" aria-hidden="true"></i> Update
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- main content area end -->
+		<!-- footer area start-->
+		<footer>
+			<div th:insert="includes/footer :: footer"></div>
+		</footer>
+		<!-- footer area end-->
+	</div>
+	<div th:insert="includes/settings :: settings"></div>
+	<!-- page container area end -->
+	<!-- offset area start -->
+	<div th:insert="includes/scripts2 :: scripts"></div>
+	<!-- offset area end -->
+	<!-- jquery latest version -->
+
+</body>
+
+</html>

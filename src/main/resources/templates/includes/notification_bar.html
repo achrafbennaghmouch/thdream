@@ -1,0 +1,138 @@
+
+<div th:fragment="notification_bar"
+	th:if="${#authentication.getPrincipal().getUser().getRole().getName()=='ADMIN'}">
+	<ul class="notification-area pull-right">
+		<li id="full-view"><i class="ti-fullscreen"></i></li>
+		<li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+		<li class="dropdown"><i class="ti-bell dropdown-toggle"
+			data-toggle="dropdown"> <span th:text="${notificationNB}"></span>
+		</i>
+			<div class="dropdown-menu bell-notify-box notify-box">
+				<span class="notify-title" ><b
+					th:text="${header.messageone}+${notificationNB}+${header.messagetwonotification}"></b> <a
+					th:href="@{/checkins}" th:value="${header?.viewallbutton}">view all</a></span>
+				<div class="nofity-list">
+					<a href="#" class="notify-item" th:each="item:${notifications}">
+						<div class="notify-thumb">
+							<img src="img/notification/booking.png" alt="image">
+						</div>
+						<div class="notify-text">
+							<p th:text="${item.name}"></p>
+							<span th:text="${item.date}"></span>
+						</div>
+					</a>
+
+				</div>
+			</div></li>
+		<li class="dropdown"><i class="fa fa-envelope-o dropdown-toggle"
+			data-toggle="dropdown"><span th:text="${messageNB}"></span></i>
+			<div class="dropdown-menu notify-box nt-enveloper-box">
+				<span class="notify-title"><b 
+				th:text="${header.messageone}+${messageNB}+${header.messagetwomessage}"
+				></b>
+					<a th:href="@{/messagesadmin}" th:value="${header?.viewallbutton}">view all</a></span>
+				<div class="nofity-list">
+					<a href="#" class="notify-item" th:each="item:${messages}">
+						<div class="notify-thumb">
+							<img src="img/notification/user.png" alt="image">
+						</div>
+						<div class="notify-text">
+							<p th:text="${item.name}"></p>
+							<span class="msg" th:text="${item.subject}"></span> <span>3:15
+								PM</span>
+						</div>
+					</a>
+
+				</div>
+			</div></li>
+		<li class="dropdown"><i class="fa fa-bed dropdown-toggle"
+			data-toggle="dropdown"><span th:text="${extrabedorderNB}"></span></i>
+			<div class="dropdown-menu notify-box nt-enveloper-box">
+				<span class="notify-title"> <b
+				    th:text="${header.messageone}+${extrabedorderNB}+${header.messagetwoextrabed}"
+					></b> <a
+					th:href="@{/extrabedadminrequest}" th:value="${header?.viewallbutton}">view all</a></span>
+				<div class="nofity-list">
+					<a href="#" class="notify-item" th:each="item:${extrabeds}">
+						<div class="notify-thumb">
+							<img src="img/notification/extrabed.png" alt="image">
+						</div>
+						<div class="notify-text">
+							<p><b th:text="${item.customer?.Fullname}"></b></p>
+							<span class="msg"
+								th:text=" ${header?.bodymessage}+ ${item.room?.RoomNo}"></span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
+						</div>
+					</a>
+
+				</div>
+			</div></li>
+		<li class="dropdown"><i class="fa fa-adjust dropdown-toggle"
+			data-toggle="dropdown"><span th:text="${housekeepingorderNB}"></span></i>
+			<div class="dropdown-menu notify-box nt-enveloper-box">
+				<span class="notify-title"> <b
+				th:text="${header.messageone}+${housekeepingorderNB}+${header.messagetwohousekeeping}"
+					></b>  <a
+					th:href="@{/housekeepingadminrequest}" th:value="${header?.viewallbutton}">view all</a></span>
+				<div class="nofity-list">
+					<a href="#" class="notify-item" th:each="item:${housekeepings}">
+						<div class="notify-thumb">
+							<img src="img/notification/housekeeping.png" alt="image">
+						</div>
+						<div class="notify-text">
+							<p th:text="${item.customer?.Fullname}"></p>
+							<span class="msg"
+								th:text=" ${header?.bodymessage}+ ${item.room?.RoomNo} "></span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
+						</div>
+					</a>
+
+				</div>
+			</div></li>
+		<li class="dropdown"><i class="fa fa-adn dropdown-toggle"
+			data-toggle="dropdown"><span th:text="${foodorderNB}"></span></i>
+			<div class="dropdown-menu notify-box nt-enveloper-box">
+				<span class="notify-title"> <b
+				  th:text="${header.messageone}+${foodorderNB}+${header.messagetwofood}"
+					></b>  <a
+					th:href="@{/foodadminrequest}" th:value="${header?.viewallbutton}">view all</a></span>
+				<div class="nofity-list">
+					<a href="#" class="notify-item" th:each="item:${foods}">
+						<div class="notify-thumb">
+							<img src="img/notification/food.png" alt="image">
+						</div>
+						<div class="notify-text">
+							<p th:text="${item.customer?.Fullname}"></p>
+							<span class="msg"
+								th:text=" ${header?.bodymessage}+ ${item.room?.RoomNo} "></span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
+						</div>
+					</a>
+
+				</div>
+			</div></li>
+		<li class="dropdown"><i class="fa fa-archive dropdown-toggle"
+			data-toggle="dropdown"><span th:text="${laundryorderNB}"></span></i>
+			<div class="dropdown-menu notify-box nt-enveloper-box">
+				<span class="notify-title" > <b
+				  th:text="${header.messageone}+${laundryorderNB}+${header.messagetwolaundry}"
+					></b>  <a
+					th:href="@{/laundryadminrequest}" th:value="${header?.viewallbutton}">view all</a></span>
+				<div class="nofity-list">
+					<a href="#" class="notify-item" th:each="item:${laundries}">
+						<div class="notify-thumb">
+							<img src="img/notification/laundry.png" alt="image">
+						</div>
+						<div class="notify-text">
+							<p th:text="${item.customer?.Fullname}"></p>
+							<span class="msg"
+								th:text=" ${header?.bodymessage} "></span>
+							<span th:text=" ${item?.date} ">3:15 PM</span>
+						</div>
+					</a>
+
+				</div>
+			</div></li>
+		<!-- <li class="settings-btn"><i class="ti-settings"></i></li> -->
+	</ul>
+</div>

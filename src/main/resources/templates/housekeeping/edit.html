@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>New</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png"
+	href="../assets/images/icon/favicon.ico">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/metisMenu.css">
+<link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="../assets/css/slicknav.min.css">
+<!-- amcharts css -->
+<link rel="stylesheet"
+	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
+	type="text/css" media="all" />
+<!-- Start datatable css -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+<!-- style css -->
+<link rel="stylesheet" href="../assets/css/typography.css">
+<link rel="stylesheet" href="../assets/css/default-css.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+<!-- modernizr css -->
+<script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+</head>
+
+<body>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<!-- preloader area start -->
+	<div id="preloader">
+		<div class="loader"></div>
+	</div>
+	<!-- preloader area end -->
+	<!-- page container area start -->
+	<div class="page-container">
+		<!-- sidebar menu area start -->
+		<div class="sidebar-menu">
+			<div class="sidebar-header">
+				<div class="logo">
+					<a th:href="index.html"><img src="../assets/images/icon/logo.png"
+						alt="logo"></a>
+				</div>
+			</div>
+			<div class="main-menu">
+				<div th:insert="includes/menu :: menu"></div>
+			</div>
+		</div>
+		<!-- sidebar menu area end -->
+		<!-- main content area start -->
+		<div class="main-content">
+			<!-- header area start -->
+			<div th:insert="includes/headarea:: headarea"></div>
+			<!-- header area end -->
+			<!-- page title area start -->
+			<div class="page-title-area">
+				<div class="row align-items-center">
+					<div class="col-sm-6">
+						<div class="breadcrumbs-area clearfix">
+							<h4 class="page-title pull-left">Create House Keeping</h4>
+							<ul class="breadcrumbs pull-left">
+								<li><a href="index.html">House Keeping</a></li>
+								<li><span>Create</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6 clearfix">
+						<div class="user-profile pull-right">
+							<img class="avatar user-thumb"
+								src="../assets/images/author/avatar.png" alt="avatar">
+							<h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+								Kumkum Rai <i class="fa fa-angle-down"></i>
+							</h4>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" th:href="@{/profile}">Profile</a> <a
+									class="dropdown-item" th:href="@{/settings}">Settings</a> <a
+									class="dropdown-item" th:href="@{/logout}">Log Out</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- page title area end -->
+			<div class="main-content-inner">
+				<div class="row">
+					<!-- data table start -->
+					<div class="col-12 mt-5">
+						<div class="card">
+							<div class="card-body">
+								<form class="needs-validation" novalidate=""
+									th:action="@{/updatehousekeeping/{id}(id=${item.id})}" th:object="${item}"
+									 method="post">
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">Room</label> 
+											<select name="Room" data-live-search="true" type="text"
+												class="form-control selectpicker" required="required">
+												<option th:value="${u.id}" th:each="u:${rooms}"
+													th:text="${u.RoomNo}"></option>
+											</select>
+
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">Item</label> <input
+											th:value="${item.HousekeepingItem}"	name="HousekeepingItem" type="text" class="form-control"
+												id="validationCustom02" placeholder="Item" required="">
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02"> Status</label> <select
+												name="Status" class="form-control" required>
+												<option value="Active">Active</option>
+												<option value="Inactive">Inactive</option>
+											</select>
+
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom01">Remark</label> <input
+											th:value="${item.Remark}"	name="Remark" type="text" class="form-control"
+												id="validationCustom01" placeholder="Remark">
+
+										</div>
+										<div class="col-md-4 mb-3">
+											<label for="validationCustom02">AssignedTo</label> <input
+												th:value="${item.AssignedTo}" name="AssignedTo" type="text" class="form-control"
+												id="validationCustom02" placeholder="AssignedTo">
+										</div>
+
+									</div>
+									<button class="btn btn-primary" type="submit">
+										<i class="fa fa-plus" aria-hidden="true"></i> Update
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- main content area end -->
+		<!-- footer area start-->
+		<footer>
+			<div th:insert="includes/footer :: footer"></div>
+		</footer>
+		<!-- footer area end-->
+	</div>
+	<div th:insert="includes/settings :: settings"></div>
+	<!-- page container area end -->
+	<!-- offset area start -->
+	<div th:insert="includes/scripts2 :: scripts"></div>
+	<!-- offset area end -->
+	<!-- jquery latest version -->
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+
+<div class="menu-inner" th:fragment="menu_client">
+	<nav>
+		<ul class="metismenu" id="menu">
+			<li><a th:href="@{/dashboard}"><i class="ti-receipt"></i> <span th:text="${menu?.dashboard}">Dashboard</span></a></li>
+			<li><a th:href="@{/}"><i class="ti-layout"></i> <span th:text="${menu?.website}">Website</span></a></li>
+			<li><a th:href="@{/checkinsclient}"><i class="ti-layout"></i> <span th:text="${menu?.chekins}">checkins</span></a></li>
+			<li><a href="javascript:void(0)" aria-expanded="true"><i
+					class="ti-pie-chart"></i><span th:text="${menu?.orders}">Orders</span></a>
+				<ul class="collapse">
+					<li><a th:href="@{/addextrabedorder}" th:text="${menu?.extrabedorder}">Extra bed </a></li>
+					<li><a th:href="@{/addhousekeepingorder}" th:text="${menu?.housekeepingorder}">House Keeping </a></li>
+					<li><a th:href="@{/addfoodorder}" th:text="${menu?.foodorder}">Food </a></li>
+					<!--  <li><a th:href="@{/addlaundryorder}" th:text="${menu?.laundryorder}">Laundry </a></li>-->
+				</ul></li>	
+			
+		</ul>
+	</nav>
+</div>

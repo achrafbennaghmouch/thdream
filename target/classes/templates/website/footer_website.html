@@ -1,0 +1,62 @@
+
+<footer th:fragment="footer_website" class="footer">
+	<div class="footer_top">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-3 col-md-6 col-lg-3">
+					<div class="footer_widget">
+						<h3 class="footer_title" th:text="${footer.addressTitleI18n}">address</h3>
+						<p class="footer_text" th:text="${hotel?.adress}"></p>
+
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6 col-lg-3">
+					<div class="footer_widget">
+						<h3 class="footer_title" th:text="${footer.reservationTitleI18n}">Reservation</h3>
+						<p class="footer_text" th:text="${hotel?.telephone}">
+							<br> <b th:text="${hotel?.email}"></b>
+						</p>
+					</div>
+				</div>
+				<div class="col-xl-2 col-md-6 col-lg-2">
+					<div class="footer_widget">
+						<h3 class="footer_title" th:text="${footer.navigationTitleI18n}">Navigation</h3>
+						<ul>
+							<li><a th:href="@{/}" th:text="${menu?.homeItemI18n}"></a></li>
+							<li><a th:href="@{/about}" th:text="${menu?.aboutItemI18n}"></a></li>
+							<li><a th:href="@{/room}" th:text="${menu?.roomItemI18n}"></a></li>
+							<li><a th:href="@{/blog}" th:text="${menu?.blogItemI18n}">
+							</a></li>
+							<li><a th:href="@{/login}" th:text="${menu?.signInI18n}">
+							</a></li>
+							<li><a th:href="@{/contact}"
+								th:text="${menu?.contactItemI18n}"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-6 col-lg-4">
+					<div class="footer_widget">
+						<h3 class="footer_title" th:text="${footer.newsletterTitleI18n}">Newsletter</h3>
+						<form method="post" class="newsletter_form"
+							th:action="@{/addsubscriber}">
+							<input type="text" th:placeholder="${footer.email}" name="email">
+							<button type="submit" th:text="${footer.signUpButton}">Sign
+								Up</button>
+						</form>
+						<p class="newsletter_text"
+							th:text="${footer.newsletterSubTitleI18n}">Subscribe
+							newsletter to get updates</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copy-right_text">
+		<div class="container">
+			<div class="footer_border"></div>
+
+
+			</div>
+		</div>
+	</div>
+</footer>
